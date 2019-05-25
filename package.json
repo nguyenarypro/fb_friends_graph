@@ -1,0 +1,21 @@
+{
+  "name": "fb_friends_graph",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "dotenv": "^8.0.0",
+    "fb": "^2.0.0",
+    "gexf": "^0.2.5",
+    "lodash": "^4.17.11",
+    "moment": "^2.24.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.4"
+  }
+}
