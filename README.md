@@ -23,3 +23,8 @@ Files will be running by the following order:
   - Each mutual friend we found will generate 3 edges lines, in the format of `<id1>|<id2>`
 3. nodeCrawler.js: Generate nodes list from edges list and crawling info of each node
 4. graphGenerator.js: Generate gexf graph file from nodes and edges file
+
+## To do
+- Allow limiting reactors/commenters/resharers per post
+- Crawling from user' images
+- Adding web template for showing graph
