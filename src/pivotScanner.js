@@ -43,7 +43,7 @@ let { init, getTargetInfo, exchangeToken, getCookie, getDTSG, getAllMutualFriend
     checked[pivot.id] = true;
 
     let mutualFriends = await getAllMutualFriends(fb_dtsg, target, pivot.id, currentUserId);
-    console.log(`Found ${mutualFriends.length} edges`);
+    console.log(`Found ${mutualFriends.length} edges, filtering new ones`);
 
     let graphEdgesText = '';
 
