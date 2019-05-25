@@ -24,6 +24,9 @@ Files will be running by the following order:
 3. nodeCrawler.js: Generate nodes list from edges list and crawling info of each node
 4. graphGenerator.js: Generate gexf graph file from nodes and edges file
 
+## Demo graph (graph has been beautifully formatted using Gephi)
+[](https://i.imgur.com/ZNJ9qKZ.jpg)
+
 ## To do
 - Allow limiting reactors/commenters/resharers per post
 - Crawling from user' images
