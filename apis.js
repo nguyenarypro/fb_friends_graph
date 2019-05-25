@@ -352,7 +352,7 @@ let getNodeInfo = (access_token, node) => {
         let data = {
           relationship: _.get(node, 'relationship.status'),
           name: _.get(node, 'name'),
-          address: _.get(node, 'address'),
+          address: JSON.stringify(_.get(node, 'address')),
           birthday: _.get(node, 'birthday'),
           hometown: _.get(node, 'hometown.name'),
           gender: _.get(node, 'gender'),
