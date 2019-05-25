@@ -36,17 +36,17 @@ let getPostIds = (access_token, node, limit = 100, start_cursor = '', end_cursor
 }
 
 let getAllPostIds = async(access_token, node) => {
-  let end_cursor = '';
+  let start_cursor = '';
   let full = [];
 
   try {
     do {
-      let data = await getPostIds(access_token, node, 1000, end_cursor);
+      let data = await getPostIds(access_token, node, 1000, start_cursor);
 
       full = full.concat(data.nodes);
 
-      end_cursor = data.page_info.has_next_page ? data.page_info.end_cursor : null;
-    } while (end_cursor);
+      start_cursor = _.get(data, 'page_info.start_cursor');
+    } while (start_cursor);
 
     return full;
   } catch (err) {
@@ -87,19 +87,19 @@ let getReactors = (access_token, node, limit = 100, friends = false, start_curso
 }
 
 let getAllReactors = async(access_token, node) => {
-  let end_cursor = '';
+  let start_cursor = '';
   let full = [];
 
   try {
     do {
-      let data = await getReactors(access_token, node, 1000, true, end_cursor);
+      let data = await getReactors(access_token, node, 1000, true, start_cursor);
 
       if (_.get(data, 'nodes')) {
         full = full.concat(data.nodes);
       }
 
-      end_cursor = _.get(data, 'page_info.end_cursor');
-    } while (end_cursor);
+      start_cursor = _.get(data, 'page_info.start_cursor');
+    } while (start_cursor);
 
     return full;
   } catch (err) {
@@ -140,19 +140,19 @@ let getResharers = (access_token, node, limit = 100, friends = false, start_curs
 }
 
 let getAllResharers = async(access_token, node) => {
-  let end_cursor = '';
+  let start_cursor = '';
   let full = [];
 
   try {
     do {
-      let data = await getResharers(access_token, node, 1000, true, end_cursor);
+      let data = await getResharers(access_token, node, 1000, true, start_cursor);
 
       if (_.get(data, 'nodes')) {
         full = full.concat(data.nodes);
       }
 
-      end_cursor = _.get(data, 'page_info.end_cursor');
-    } while (end_cursor);
+      start_cursor = _.get(data, 'page_info.start_cursor');
+    } while (start_cursor);
 
     return full;
   } catch (err) {
@@ -194,18 +194,18 @@ let getCommenters = (access_token, node, limit = 100, friends = false, start_cur
 
 let getAllCommenters = async(access_token, node) => {
   try {
-    let end_cursor = '';
+    let start_cursor = '';
     let full = [];
 
     do {
-      let data = await getCommenters(access_token, node, 1000, true, end_cursor);
+      let data = await getCommenters(access_token, node, 1000, true, start_cursor);
 
       if (_.get(data, 'nodes')) {
         full = full.concat(data.nodes);
       }
 
-      end_cursor = _.get(data, 'page_info.end_cursor');
-    } while (end_cursor);
+      start_cursor = _.get(data, 'page_info.start_cursor');
+    } while (start_cursor);
 
     return full;
   } catch (err) {
@@ -287,7 +287,7 @@ let getMutualFriends = (fb_dtsg, uid, node, currentUserId, start = 0) => {
         let id = elem.find('._39g5').attr('href');
 
         if (!id) return null;
-        
+
         id = id.split('uid=')[1];
 
         return { name, id };
